@@ -1,0 +1,350 @@
+/* =========================================================
+   NHÀ SÁCH ONLINE — Design tokens
+   Ý tưởng: bìa da sách cũ (xanh rêu) + mạ vàng đồng + giấy kem
+   ========================================================= */
+
+:root {
+  --paper:      #F6F1E4;
+  --paper-2:    #EFE7D3;
+  --ink:        #201D18;
+  --ink-soft:   #55503F;
+  --forest:     #26392E;
+  --forest-2:   #33493A;
+  --brass:      #B5842A;
+  --brass-soft: #D9B45F;
+  --burgundy:   #6E2A32;
+  --line:       #DCD0AF;
+  --shadow:     0 8px 24px rgba(38, 57, 46, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Source Sans 3", -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3, h4, h5, .brand-font {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--forest); text-decoration: none; }
+a:hover { color: var(--brass); }
+
+.eyebrow {
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+  font-weight: 700;
+}
+
+hr, .rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 1.75rem 0;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar-sach {
+  background: var(--forest);
+  padding: 0.9rem 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+.navbar-sach .brand {
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.navbar-sach .brand:hover { color: var(--brass-soft); }
+.navbar-sach .brand .mark {
+  display: inline-block;
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--brass-soft);
+  border-radius: 3px;
+  position: relative;
+}
+.navbar-sach .brand .mark::before {
+  content: "";
+  position: absolute; left: 50%; top: 4px; bottom: 4px;
+  width: 1px; background: var(--brass-soft);
+}
+.navbar-sach .search-form input {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--paper);
+}
+.navbar-sach .search-form input::placeholder { color: rgba(246,241,228,0.55); }
+.navbar-sach .search-form input:focus {
+  background: rgba(255,255,255,0.14);
+  border-color: var(--brass-soft);
+  color: var(--paper);
+  box-shadow: none;
+}
+.navbar-sach .search-form button {
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--paper);
+}
+.navbar-sach .search-form button:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--forest);
+}
+.navbar-sach .nav-link-light {
+  color: var(--paper);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+  transition: 0.15s;
+}
+.navbar-sach .nav-link-light:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--brass-soft);
+  border-color: var(--brass-soft);
+}
+.navbar-sach .nav-cta {
+  background: var(--brass);
+  color: var(--forest) !important;
+  border: 1px solid var(--brass);
+  font-weight: 600;
+}
+.navbar-sach .nav-cta:hover { background: var(--brass-soft); border-color: var(--brass-soft); }
+.navbar-sach .whoami { color: var(--paper); opacity: 0.85; font-size: 0.9rem; }
+
+/* ---------- HERO (trang chủ) ---------- */
+.hero-sach {
+  background: var(--forest);
+  color: var(--paper);
+  border-radius: 6px;
+  padding: 2.75rem 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-sach::after {
+  content: "";
+  position: absolute; top: 0; right: 48px;
+  width: 34px; height: 90px;
+  background: var(--brass);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+}
+.hero-sach h1 {
+  color: var(--paper);
+  font-size: 2.3rem;
+  max-width: 20ch;
+  margin-bottom: 0.6rem;
+}
+.hero-sach p {
+  color: rgba(246,241,228,0.8);
+  max-width: 48ch;
+  margin-bottom: 0;
+}
+
+/* ---------- SIDEBAR THỂ LOẠI ---------- */
+.side-panel h5 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin-bottom: 0.75rem;
+}
+.side-panel .list-group-item {
+  border: none;
+  border-left: 2px solid transparent;
+  background: transparent;
+  padding: 0.5rem 0.75rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.side-panel .list-group-item:hover {
+  background: var(--paper-2);
+  border-left-color: var(--brass-soft);
+}
+.side-panel .list-group-item.active {
+  background: var(--paper-2);
+  border-left-color: var(--brass);
+  color: var(--forest);
+  font-weight: 600;
+}
+
+/* ---------- THẺ SÁCH ---------- */
+.sach-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+.sach-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--brass-soft);
+}
+.sach-item .thumb-wrap {
+  position: relative;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+.sach-item img {
+  height: 230px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.sach-item:hover img { transform: scale(1.04); }
+.sach-item .ribbon {
+  position: absolute; top: 0; right: 14px;
+  width: 22px; height: 40px;
+  background: var(--burgundy);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+}
+.sach-item .body {
+  padding: 0.9rem 1rem 1.1rem;
+  text-align: left;
+}
+.sach-item h6 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+  min-height: 2.5em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.sach-item .tacgia {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+.gia-sach {
+  color: var(--brass);
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+.sach-item .btn-outline-primary {
+  border-color: var(--forest);
+  color: var(--forest);
+  font-size: 0.85rem;
+}
+.sach-item .btn-outline-primary:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--paper);
+}
+
+/* ---------- NÚT & FORM CHUNG ---------- */
+.btn-primary, .btn-success {
+  background: var(--forest) !important;
+  border-color: var(--forest) !important;
+  color: var(--paper) !important;
+  font-weight: 600;
+}
+.btn-primary:hover, .btn-success:hover {
+  background: var(--forest-2) !important;
+  border-color: var(--forest-2) !important;
+}
+.btn-warning {
+  background: var(--brass) !important;
+  border-color: var(--brass) !important;
+  color: #2a1f0d !important;
+}
+.btn-danger {
+  background: var(--burgundy) !important;
+  border-color: var(--burgundy) !important;
+}
+.btn-outline-secondary {
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--brass);
+  box-shadow: 0 0 0 0.2rem rgba(181,132,42,0.15);
+}
+.form-label { font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+
+.card, .border { border-color: var(--line) !important; }
+.list-group-item.active { background-color: var(--forest); border-color: var(--forest); }
+
+.panel-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.table {
+  background: #fff;
+  border-color: var(--line);
+}
+.table thead th {
+  background: var(--paper-2);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  border-bottom-width: 1px;
+}
+.table td, .table th { border-color: var(--line); vertical-align: middle; }
+
+.alert-success { background: #EAF1E7; border-color: #C8DAC0; color: var(--forest); }
+.alert-danger  { background: #F3E2E1; border-color: #E3BEBD; color: var(--burgundy); }
+
+.badge.bg-info { background: var(--brass-soft) !important; color: #2a1f0d; }
+
+.card.bg-primary { background: var(--forest) !important; }
+.card.bg-success { background: #3E5C46 !important; }
+.card.bg-warning { background: var(--brass) !important; color: #2a1f0d !important; }
+.card.bg-warning h6, .card.bg-warning h3 { color: #2a1f0d; }
+.card.bg-danger { background: var(--burgundy) !important; }
+
+/* ---------- FOOTER ---------- */
+.footer-sach {
+  background: var(--forest);
+  color: rgba(246,241,228,0.75);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  font-size: 0.88rem;
+}
+
+/* ---------- ADMIN SIDEBAR ---------- */
+.admin-sidebar {
+  background: var(--paper-2);
+  min-height: 100vh;
+}
+.admin-sidebar .list-group-item {
+  border: none;
+  background: transparent;
+  border-left: 3px solid transparent;
+  color: var(--ink);
+  font-weight: 500;
+}
+.admin-sidebar .list-group-item:hover {
+  background: rgba(181,132,42,0.12);
+  border-left-color: var(--brass);
+}
+
+@media (max-width: 767px) {
+  .hero-sach { padding: 2rem 1.5rem; }
+  .hero-sach h1 { font-size: 1.7rem; }
+}
